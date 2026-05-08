@@ -142,49 +142,39 @@ input, select, textarea {
 
 	body, input, select, textarea {
 		font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
-		font-size: 14.75pt;
+		font-size: 14.75pt; /* Desktop Default */
 		font-weight: 300;
 		line-height: 1.82;
 	}
 
 		@media screen and (max-width: 1680px) {
-
 			body, input, select, textarea {
-				font-size: 14.75pt;
+				font-size: 14pt; /* Gentle step down */
 			}
-
 		}
 
 		@media screen and (max-width: 1280px) {
-
 			body, input, select, textarea {
-				font-size: 12pt;
+				font-size: 13pt; /* Gentle step down */
 			}
-
 		}
 
 		@media screen and (max-width: 980px) {
-
 			body, input, select, textarea {
-				font-size: 12pt;
+				font-size: 12pt; /* Tablet size */
 			}
-
 		}
 
 		@media screen and (max-width: 736px) {
-
 			body, input, select, textarea {
-				font-size: 12pt;
+				font-size: 12pt; /* Mobile size */
 			}
-
 		}
 
 		@media screen and (max-width: 480px) {
-
 			body, input, select, textarea {
-				font-size: 12pt;
+				font-size: 11.5pt; /* Small mobile size */
 			}
-
 		}
 
 	a {
@@ -4455,18 +4445,25 @@ input, select, textarea {
 
 		}
 
-html[lang="th"] body,
-html[lang="th"] input,
-html[lang="th"] select,
-html[lang="th"] textarea {
-  font-family: "Noto Sans Thai", "Source Sans Pro", Arial, Helvetica, sans-serif;
-  letter-spacing: 0.05em; /* reduces “too spaced” uppercase vibe */
+/* Clean 15% size bump targeted ONLY at Thai text wrappers */
+span.lang-th {
+    font-family: "Noto Sans Thai", "Source Sans Pro", Arial, Helvetica, sans-serif !important;
+    letter-spacing: 0em !important; 
+    font-size: 1.15em; 
 }
+
+p span.lang-th,
+article div span.lang-th,
+table span.lang-th {
+    font-size: 0.9em; 
+}
+
+
 
 /* SE Brand Override: change the teal header blocks to magenta */
 header.style2 {
   background-color: #7c1d4e;
-	
+}
 /* Footer */
 
 	#footer {
@@ -4511,5 +4508,15 @@ header.style2 {
 				padding: 3em 1.5em 0.6em 1.5em ;
 			}
 
+		}
+	
+	/* Language Toggle Logic */
+	
+		body.lang-th .lang-en { 
+			display: none !important; 
+		}
+
+		body.lang-en .lang-th { 
+			display: none !important; 
 		}
 	
